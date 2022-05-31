@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # Third Party
     'rest_framework',
     'djoser',
+    'storages',
 
     # Custom
     'users',
@@ -176,9 +177,6 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(days=1),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
-
-
-
 
 
 # AWS BUCKET CONFIG
