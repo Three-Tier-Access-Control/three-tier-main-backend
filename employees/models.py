@@ -29,9 +29,9 @@ class Employee(TimeStampedUUIDModel):
     class Meta:
         ordering = ('-created',)
 
-    @property
-    def file_url(self):
-        return self.file.url
+    # @property
+    # def file_url(self):
+    #     return self.file.url
 
     def __str__(self):
         return '{self.first_name} {self.last_name}'
