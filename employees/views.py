@@ -14,16 +14,6 @@ from employees.serializers import EmployeeSerializer, FingerPrintSerializer, RFI
 class EmployeeViewSet(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-    parser_classes = [MultiPartParser, FormParser]
-    permission_classes = [IsAuthenticated]
-
-    def post(self, request, format=None):
-        serializer = EmployeeSerializer(data=request.data, instance=request.user)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class RFIDCardViewSet(viewsets.ModelViewSet):
     queryset = RFIDCard.objects.all()
