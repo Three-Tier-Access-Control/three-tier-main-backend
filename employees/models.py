@@ -19,8 +19,6 @@ class Employee(TimeStampedUUIDModel):
     first_name = models.CharField(max_length=254)
     last_name = models.CharField(max_length=254)
     email_address = models.EmailField(max_length=254, unique=True)
-    is_active = models.BooleanField(default=True)
-
     role = models.CharField(max_length=254, null=True, blank=True)
     phone_number = models.CharField(max_length=254, null=True, blank=True)
     city = models.CharField(max_length=254, null=True, blank=True)
@@ -30,6 +28,10 @@ class Employee(TimeStampedUUIDModel):
 
     class Meta:
         ordering = ('-created',)
+
+    @property
+    def file_url(self):
+        return self.file.url
 
     def __str__(self):
         return '{self.first_name} {self.last_name}'
