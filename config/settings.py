@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'djoser',
 
     # Custom 
-    'users'
+    'users',
+    'employees'
 
 ]
 
