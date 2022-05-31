@@ -1,9 +1,19 @@
 from re import T
 from django.db import models
 from utils.models import TimeStampedUUIDModel
+from django.utils import timezone
+import os
+import sys
+
 
 # Create your models here.
 
+
+def upload_to(instance, filename):
+    now = timezone.now()
+    base, extension = os.path.splitext(filename.lower())
+    milliseconds = now.microsecond 
+    return f"users/{instance.pk}/{now:%Y%m%d%H%M%S}{milliseconds}{extension}"
 
 class Employee(TimeStampedUUIDModel):
     first_name = models.CharField(max_length=254)
@@ -17,7 +27,7 @@ class Employee(TimeStampedUUIDModel):
     city = models.CharField(max_length=254, null=True, blank=True)
     street_address = models.CharField(max_length=254, null=True, blank=True)
 
-    # profile_image = Column(String, nullable=True)
+    photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
 
     class Meta:
         ordering = ('-created',)
