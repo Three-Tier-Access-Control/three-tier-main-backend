@@ -29,3 +29,4 @@ class FingerPrintSerializer(serializers.ModelSerializer):
     class Meta:
         model = FingerPrint
         fields = '__all__'
+        depth = 1 
