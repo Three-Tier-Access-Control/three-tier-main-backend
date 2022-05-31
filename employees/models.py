@@ -22,7 +22,6 @@ class Employee(TimeStampedUUIDModel):
     is_active = models.BooleanField(default=True)
 
     role = models.CharField(max_length=254, null=True, blank=True)
-    national_id = models.CharField(max_length=254, null=True, blank=True)
     phone_number = models.CharField(max_length=254, null=True, blank=True)
     city = models.CharField(max_length=254, null=True, blank=True)
     street_address = models.CharField(max_length=254, null=True, blank=True)

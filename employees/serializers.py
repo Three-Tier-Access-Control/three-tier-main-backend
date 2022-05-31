@@ -8,9 +8,8 @@ class EmployeeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Employee
-        # fields = '__all__'
+        fields = '__all__'
 
-        fields = ['first_name', 'last_name', 'email_address', 'photo']
 
 class RFIDCardSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
