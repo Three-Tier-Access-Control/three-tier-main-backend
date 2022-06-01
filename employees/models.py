@@ -19,8 +19,7 @@ class Employee(TimeStampedUUIDModel):
     first_name = models.CharField(max_length=254)
     last_name = models.CharField(max_length=254)
     email_address = models.EmailField(max_length=254, unique=True)
-    role = models.CharField(max_length=254, null=True, blank=True)
-    phone_number = models.CharField(max_length=254, null=True, blank=True)
+    phone_number = models.CharField(max_length=254)
     city = models.CharField(max_length=254, null=True, blank=True)
     street_address = models.CharField(max_length=254, null=True, blank=True)
 

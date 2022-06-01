@@ -7,7 +7,7 @@ admin.site.unregister(Group)
 
 @admin.register(Employee)
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ("first_name", "last_name", "email_address", "role", "created")
+    list_display = ("first_name", "last_name", "email_address", "phone_number", "created")
     list_filter = ("first_name", "last_name")
     date_hierarchy = 'created'
 
