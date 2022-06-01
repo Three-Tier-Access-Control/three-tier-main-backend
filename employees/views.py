@@ -6,6 +6,8 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.filters import SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
 from employees.models import Employee, FingerPrint, RFIDCard
 from employees.serializers import EmployeeSerializer, FingerPrintSerializer, RFIDCardSerializer
 
@@ -19,7 +21,9 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 class RFIDCardViewSet(viewsets.ModelViewSet):
     queryset = RFIDCard.objects.all()
     serializer_class = RFIDCardSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['uid_tag']
+    search_fields = ['uid_tag']
 
     def create(self, request, *args, **kwargs):
         try:
@@ -49,7 +53,9 @@ class RFIDCardViewSet(viewsets.ModelViewSet):
 class FingerPrintViewSet(viewsets.ModelViewSet):
     queryset = FingerPrint.objects.all()
     serializer_class = FingerPrintSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['fingerprint_id']
+    search_fields = ['fingerprint_id']
 
     def create(self, request, *args, **kwargs):
         try:
