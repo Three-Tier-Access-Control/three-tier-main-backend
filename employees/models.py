@@ -42,6 +42,8 @@ class RFIDCard(TimeStampedUUIDModel):
     uid_tag = models.CharField(max_length=254)
 
     class Meta:
+        verbose_name = "RFID Card"
+        verbose_name_plural = "RFID Cards"
         ordering = ('-created',)
     def __str__(self):
         return self.uid_tag
@@ -52,6 +54,8 @@ class FingerPrint(TimeStampedUUIDModel):
     fingerprint_id = models.PositiveIntegerField(unique=True)
 
     class Meta:
+        verbose_name = "Fingerprint"
+        verbose_name_plural = "Fingerprints"
         ordering = ('-created',)
     
     def __str__(self):
