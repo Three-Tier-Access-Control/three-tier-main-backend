@@ -1,0 +1,20 @@
+{% extends "admin/base.html" %}
+
+{% load static %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Three Tier Security') }}{% endblock %}
+
+
+{% block extrahead %}
+    <link rel="shortcut icon" href="{% static 'logo.png' %}" />
+{% endblock %}
+
+{% block branding %}
+<h1 id="site-name">
+    <a href="{% url 'admin:index' %}">
+        <img src="{% static 'logo.png' %}" height="60px" />
+    </a>
+</h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

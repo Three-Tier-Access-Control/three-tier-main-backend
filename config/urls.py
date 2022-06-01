@@ -34,14 +34,15 @@ urlpatterns = [
     path('api/users/', include('users.urls')),
     path('api/employees/', include('employees.urls')),
     path('api/', include(router.urls)),
-
-
-
 ]
-
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
+
+
+admin.site.site_header = "Three Tier Security"
+admin.site.site_title = "Three Tier Security"
+admin.site.index_title = "Three Tier Security Dashboard"
