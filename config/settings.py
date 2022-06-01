@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     # Third Party
     'rest_framework',
     'djoser',
+    'django_filters',
+
     # 'storages',
 
     # Custom
@@ -149,8 +151,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-}
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 
+}
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=3),

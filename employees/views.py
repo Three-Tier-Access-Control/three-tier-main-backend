@@ -19,6 +19,7 @@ class EmployeeViewSet(viewsets.ModelViewSet):
 class RFIDCardViewSet(viewsets.ModelViewSet):
     queryset = RFIDCard.objects.all()
     serializer_class = RFIDCardSerializer
+    filterset_fields = ['uid_tag']
 
     def create(self, request, *args, **kwargs):
         try:
@@ -48,6 +49,7 @@ class RFIDCardViewSet(viewsets.ModelViewSet):
 class FingerPrintViewSet(viewsets.ModelViewSet):
     queryset = FingerPrint.objects.all()
     serializer_class = FingerPrintSerializer
+    filterset_fields = ['fingerprint_id']
 
     def create(self, request, *args, **kwargs):
         try:
