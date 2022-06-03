@@ -58,4 +58,4 @@ class FingerPrint(TimeStampedUUIDModel):
         ordering = ('-created',)
     
     def __str__(self):
-        return self.fingerprint_id
+        return f"{self.fingerprint_id}"
