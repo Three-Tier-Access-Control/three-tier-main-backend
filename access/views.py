@@ -20,9 +20,10 @@ class AccessLogViewSet(viewsets.ModelViewSet):
             data = request.data
             employee_id = data['employee']
             direction = data['direction']
+            status = data['status']
             employee = Employee.objects.get(id=employee_id)
 
-            log = AccessLog.objects.create(employee=employee, direction=direction)
+            log = AccessLog.objects.create(employee=employee, direction=direction, status=status)
 
             serializer = AccessLogSerializer(log)
             return Response(serializer.data)
