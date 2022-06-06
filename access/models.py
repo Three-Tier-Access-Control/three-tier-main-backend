@@ -7,7 +7,7 @@ class AccessLog(TimeStampedUUIDModel):
     IN = "in"
     OUT = "out"
     DIRECTION_CHOICES = [(IN, "IN"), (OUT, "OUT"), ]
-    employee = models.OneToOneField(
+    employee = models.ForeignKey(
         Employee, on_delete=models.CASCADE, related_name="access_logs")
     direction = models.CharField(
         max_length=254, choices=DIRECTION_CHOICES, default=IN)
