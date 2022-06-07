@@ -11,6 +11,8 @@ from employees.models import Employee
 class AccessLogViewSet(viewsets.ModelViewSet):
     queryset = AccessLog.objects.all()
     serializer_class = AccessLogSerializer
+    permission_classes = []
+    authentication_classes = []
     filter_backends = [DjangoFilterBackend, SearchFilter]
     filterset_fields = ['direction']
     search_fields = ['direction']
