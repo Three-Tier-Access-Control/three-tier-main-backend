@@ -22,10 +22,10 @@ class AccessLogViewSet(viewsets.ModelViewSet):
             data = request.data
             employee_id = data['employee']
             direction = data['direction']
-            status = data['status']
+            entry_status = data['status']
             employee = Employee.objects.get(id=employee_id)
 
-            log = AccessLog.objects.create(employee=employee, direction=direction, status=status)
+            log = AccessLog.objects.create(employee=employee, direction=direction, status=entry_status)
 
             serializer = AccessLogSerializer(log)
             return Response(serializer.data)
@@ -34,5 +34,5 @@ class AccessLogViewSet(viewsets.ModelViewSet):
             return Response({"detail": f"Employee {employee_id} does not exist"}, status=status.HTTP_404_NOT_FOUND)
 
         except Exception as e:
-            return Response({"detail": f"Error:  {e}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({"detail": f"Error: {e}"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
