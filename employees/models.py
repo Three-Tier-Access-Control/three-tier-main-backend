@@ -32,6 +32,10 @@ class Employee(TimeStampedUUIDModel):
     def fingerprint(self):
         return self.fingerprints
 
+    @property
+    def rfid_card(self):
+        return self.rfids
+
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
