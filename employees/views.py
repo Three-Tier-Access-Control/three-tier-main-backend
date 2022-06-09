@@ -22,8 +22,8 @@ class RFIDCardViewSet(viewsets.ModelViewSet):
     queryset = RFIDCard.objects.all()
     serializer_class = RFIDCardSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter]
-    filterset_fields = ['uid_tag']
-    search_fields = ['uid_tag']
+    filterset_fields = ['uid_tag', 'employee__id']
+    search_fields = ['uid_tag', 'employee__id']
 
     def create(self, request, *args, **kwargs):
         try:
