@@ -28,16 +28,16 @@ class Employee(TimeStampedUUIDModel):
     class Meta:
         ordering = ('-created',)
 
-    # @property
-    # def file_url(self):
-    #     return self.file.url
+    @property
+    def fingerprint(self):
+        return self.fingerprints
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
 
 class RFIDCard(TimeStampedUUIDModel):
     employee = models.OneToOneField(
-        Employee, on_delete=models.CASCADE, related_name="rfids")
+        'Employee', on_delete=models.CASCADE, related_name="rfids")
     uid_tag = models.CharField(max_length=254)
 
     class Meta:
@@ -49,7 +49,7 @@ class RFIDCard(TimeStampedUUIDModel):
 
 class FingerPrint(TimeStampedUUIDModel):
     employee = models.OneToOneField(
-        Employee, on_delete=models.CASCADE, related_name="fingerprints")
+        'Employee', on_delete=models.CASCADE, related_name="fingerprints")
     fingerprint_id = models.PositiveIntegerField(unique=True)
 
     class Meta:
