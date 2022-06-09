@@ -6,12 +6,15 @@ from rest_framework.response import Response
 # Serializers define the API representation.
 
 
-class EmployeeSerializer(serializers.ModelSerializer):
+class EmployeeSerializer(serializers.HyperlinkedModelSerializer):
     photo = serializers.ImageField()
+    fingerprint = serializers.StringRelatedField(many=False)
+    rfid_card = serializers.StringRelatedField(many=False)
 
     class Meta:
         model = Employee
-        fields = '__all__'
+        # fields = '__all__'
+        fields = ['id', 'first_name', 'last_name', 'photo', 'email_address', 'phone_number', 'city', 'street_address', 'fingerprint', 'rfid_card', 'modified', 'created']
 
 
 class RFIDCardSerializer(serializers.ModelSerializer):
