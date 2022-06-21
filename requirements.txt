@@ -19,6 +19,7 @@ django-templated-mail
 djangorestframework
 djangorestframework-simplejwt
 djoser
+drf-yasg
 idna
 importlib-metadata
 itypes
