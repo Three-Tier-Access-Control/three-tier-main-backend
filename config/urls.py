@@ -18,10 +18,13 @@ from django.urls import include, path, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework import routers
-from employees.views import FingerPrintViewSet, RFIDCardViewSet
+from access.views import AccessLogViewSet
+from employees.views import EmployeeViewSet, FingerPrintViewSet, RFIDCardViewSet
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+
+from users.views import UserViewSet
 
 
 schema_view = get_schema_view(
@@ -40,6 +43,9 @@ schema_view = get_schema_view(
 router = routers.DefaultRouter()
 router.register(r'rfid', RFIDCardViewSet)
 router.register(r'fingerprint', FingerPrintViewSet)
+router.register(r'access', AccessLogViewSet)
+router.register(r'employees', EmployeeViewSet)
+router.register(r'users', UserViewSet)
 
 
 urlpatterns = [
@@ -52,11 +58,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('djoser.urls')),
     path('api/auth/', include('djoser.urls.jwt')),
-    path('api/users/', include('users.urls')),
-    path('api/employees/', include('employees.urls')),
-    path('api/access/', include('access.urls')),
     path('api/', include(router.urls)),
 ]
+
+
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL,
