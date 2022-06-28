@@ -22,9 +22,7 @@ class Employee(TimeStampedUUIDModel):
     phone_number = models.CharField(max_length=254)
     city = models.CharField(max_length=254, null=True, blank=True)
     street_address = models.CharField(max_length=254, null=True, blank=True)
-
     photo = models.ImageField(upload_to=upload_to, blank=True, null=True)
-
     class Meta:
         ordering = ('-created',)
 
