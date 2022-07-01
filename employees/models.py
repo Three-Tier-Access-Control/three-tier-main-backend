@@ -46,8 +46,9 @@ class RFIDCard(TimeStampedUUIDModel):
         verbose_name = "RFID Card"
         verbose_name_plural = "RFID Cards"
         ordering = ('-created',)
+        
     def __str__(self):
-        return self.uid_tag
+        return f"{self.uid_tag}"
 
 class FingerPrint(TimeStampedUUIDModel):
     employee = models.OneToOneField(
