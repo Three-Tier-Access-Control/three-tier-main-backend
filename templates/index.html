@@ -144,7 +144,7 @@
         </div>
         <h2>Browsable API</h2>
         <p>The browsable API feature in the Django REST framework generates HTML output for different resources.</p>
-        <a href="#" class="icon-link d-inline-flex align-items-center">
+        <a href="{% url 'api-root' %}" class="icon-link d-inline-flex align-items-center">
           Go to page
           <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
         </a>
@@ -156,7 +156,7 @@
         <h2>Swagger</h2>
         <p>
           Swagger is an open source set of rules, specifications and tools for developing and describing RESTful APIs.</p>
-        <a href="#" class="icon-link d-inline-flex align-items-center">
+          <a href="{% url 'schema-swagger-ui' %}" class="icon-link d-inline-flex align-items-center">
           Go to page
           <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
         </a>
@@ -168,7 +168,7 @@
         <h2>Redoc</h2>
         <p>
           Redoc is an open-source tool that generates API documentation from OpenAPI specifications. </p>
-        <a href="#" class="icon-link d-inline-flex align-items-center">
+        <a href="{% url 'schema-redoc' %}" class="icon-link d-inline-flex align-items-center">
           Go to page
           <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
         </a>
